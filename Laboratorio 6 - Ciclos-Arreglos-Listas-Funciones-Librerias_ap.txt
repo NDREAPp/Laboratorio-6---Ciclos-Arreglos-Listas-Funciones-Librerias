@@ -1,0 +1,32 @@
+import matplotlib.pyplot as plt
+
+numeroslista = []
+suma_acumulativa = []
+
+while True:
+    entrada = input("Ingresa una lista de números y da enter 2 veces para calcular el total: ")
+    
+    if entrada == '':
+        break
+    
+    numeros_lista = entrada.split(',')
+    
+    try:
+        numeroslista += [float(numero) for numero in numeros_lista]
+        suma_acumulativa.append(int(sum(numeroslista))) 
+    except ValueError:
+        print("Ese no es un número")
+
+suma_total = int(sum(numeroslista)) 
+
+print(f"La suma total es: {suma_total}")
+
+print("La suma acumulativa es:", suma_acumulativa)
+
+colores_barras = ['cyan', 'lime', 'blue', 'yellow', 'orange']
+
+plt.bar(range(1, len(suma_acumulativa) + 1), suma_acumulativa, color=colores_barras)
+plt.xlabel('Números')
+plt.ylabel('Suma Acumulativa')
+plt.title('Suma Acumulativa de los números en lista')
+plt.show()
